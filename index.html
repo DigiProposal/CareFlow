@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAREFLOW | Propuesta Comercial</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Google Fonts (Poppins y Open Sans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Iconos de Heroicons (usando SVG en línea para mayor compatibilidad) -->
+
+    <script>
+        // Configuración de Tailwind para usar la paleta de colores y tipografía de CAREFLOW
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cf-primary': '#1C4E80', // Deep Blue
+                        'cf-secondary': '#00B8D9', // Turquoise Flow
+                        'cf-success': '#27AE60', // Emerald Green
+                        'cf-bg-light': '#E5E9EC', // Cool Gray
+                        'cf-text': '#2C3E50', // Charcoal
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        title: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos base para la página */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #2C3E50;
+            background-color: #f7f9fb; /* Un blanco roto para contraste */
+        }
+        h1, h2, h3, h4, .font-title {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Estilo para los botones de acción/éxito */
+        .btn-success {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(39, 174, 96, 0.4), 0 2px 4px -2px rgba(39, 174, 96, 0.4);
+        }
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(39, 174, 96, 0.5), 0 4px 6px -4px rgba(39, 174, 96, 0.5);
+        }
+
+        /* Efecto de sombra y elevación para tarjetas */
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(28, 78, 128, 0.1);
+        }
+
+        /* Animación de la línea de tiempo */
+        .timeline-step {
+            position: relative;
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: #00B8D9;
+            border-radius: 50%;
+            border: 2px solid #1C4E80;
+            transition: all 0.3s ease;
+        }
+        .timeline-step:hover::before {
+            width: 12px;
+            height: 12px;
+            background-color: #27AE60;
+        }
+        @media (min-width: 768px) {
+            .timeline-line {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                width: 2px;
+                background-color: #E5E9EC;
+                transform: translateX(-50%);
+                z-index: -1;
+            }
+        }
+        
+        /* Estilo personalizado para el fondo de imagen del Hero */
+        .hero-background {
+            background-image: url('https://ik.imagekit.io/50wnllxkw/2149288189.jpg?updatedAt=1762966975794');
+            background-size: cover;
+            background-position: center;
+        }
+
+    </style>
+</head>
+<body class="bg-cf-bg-light">
+
+    <!-- Navbar/Header Fijo con Menú de Navegación -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <!-- Logo/Brand Name (Izquierda) -->
+            <div class="flex items-center space-x-3">
+                <div>
+                    <h1 class="text-xl font-title font-semibold text-cf-primary">CAREFLOW</h1>
+                    <p class="text-xs font-title text-cf-secondary uppercase tracking-wider">Smart patient flow management.</p>
+                </div>
+            </div>
+
+            <!-- Menú de Navegación (Derecha) -->
+            <nav class="hidden lg:flex space-x-6 text-sm font-title font-medium">
+                <a href="#propuesta-valor" class="text-cf-text hover:text-cf-secondary transition duration-150">Propuesta</a>
+                <a href="#componentes" class="text-cf-text hover:text-cf-secondary transition duration-150">Servicio</a>
+                <a href="#beneficios" class="text-cf-text hover:text-cf-secondary transition duration-150">Beneficios</a>
+                <a href="#modelo-economico" class="text-cf-text hover:text-cf-secondary transition duration-150">Modelo Económico</a>
+                <a href="#plan" class="text-cf-text hover:text-cf-secondary transition duration-150">Plan</a>
+                <a href="#resultados" class="text-cf-text hover:text-cf-secondary transition duration-150">Resultados</a>
+            </nav>
+
+            <!-- Botón de Contacto visible en móvil/tablet -->
+            <a href="#contacto" class="lg:hidden px-3 py-1 text-sm font-title font-semibold rounded-full text-white bg-cf-primary hover:bg-cf-secondary transition duration-150">
+                Contacto
+            </a>
+        </div>
+    </header>
+
+    <!-- Sección Hero / Título Principal con Imagen de Fondo y Overlay -->
+    <section class="py-16 md:py-24 relative hero-background">
+        <!-- Overlay para asegurar contraste y aplicar color de marca (Deep Blue) -->
+        <div class="absolute inset-0 bg-cf-primary opacity-85"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10 text-white">
+            <!-- Logo GRANDE (Ajustado a h-80) -->
+            <img src="https://ik.imagekit.io/50wnllxkw/CAREFLOW%20LOGO.png?updatedAt=1762964277893" alt="Logo CAREFLOW" class="h-80 w-auto mx-auto mb-8 filter brightness-0 invert">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-title font-bold mb-4">
+                Servicio de Seguimiento y Direccionamiento Post Atención Médica
+            </h1>
+            <p class="text-lg opacity-90 font-light max-w-3xl mx-auto">
+                Un modelo innovador que capitaliza la demanda asistencial, garantizando que los pacientes completen su atención dentro de su red priorizada de prestadores aliados.
+            </p>
+        </div>
+    </section>
+
+    <!-- 1. Introducción (Revisada para interactividad y menor densidad de texto) -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-title font-semibold text-cf-primary mb-12 text-center">
+                1. Introducción: Capitalizando la Demanda Asistencial
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                
+                <!-- Columna 1: Enfoque Innovador -->
+                <div class="bg-cf-bg-light p-6 rounded-xl shadow-inner border-l-4 border-cf-primary hover:shadow-lg transition duration-300">
+                    <h3 class="font-title text-xl font-semibold text-cf-primary mb-3 flex items-center">
+                        <!-- Icono de Fluidez -->
+                        <svg class="w-6 h-6 mr-2 text-cf-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Modelo Innovador
+                    </h3>
+                    <p class="text-cf-text leading-relaxed">
+                        Nuestro servicio está diseñado para <strong class="text-cf-text">capitalizar la demanda</strong> generada en urgencias, consultas externas y procedimientos.
+                    </p>
+                    <p class="text-cf-text leading-relaxed mt-2">
+                        Garantizamos que el flujo de pacientes se mantenga dentro de su <strong class="text-cf-primary">red priorizada de prestadores aliados</strong>, asegurando la continuidad del tratamiento.
+                    </p>
+                </div>
+                
+                <!-- Columna 2: Impacto y Mecanismo -->
+                <div class="bg-cf-bg-light p-6 rounded-xl shadow-inner border-l-4 border-cf-secondary hover:shadow-lg transition duration-300">
+                    <h3 class="font-title text-xl font-semibold text-cf-secondary mb-3 flex items-center">
+                        <!-- Icono de Acompañamiento -->
+                        <svg class="w-6 h-6 mr-2 text-cf-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        Concierge y Rentabilidad
+                    </h3>
+                    <p class="text-cf-text leading-relaxed">
+                        Utilizamos un sistema de <strong class="text-cf-primary">concierge médico</strong> y seguimiento personalizado que se traduce en:
+                    </p>
+                    <ul class="list-disc ml-5 mt-2 space-y-1 text-sm text-cf-text font-semibold">
+                        <li>Optimización de la continuidad asistencial.</li>
+                        <li>Mejora en la experiencia del paciente.</li>
+                        <li><span class="text-cf-success">Incremento de ingresos</span> al asegurar que las órdenes se concreten dentro de la red.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 3. Propuesta de Valor (Interactive Grid) -->
+    <section id="propuesta-valor" class="py-16 bg-cf-bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-title font-semibold text-cf-primary mb-10 text-center">
+                3. Propuesta de Valor | El Eje del Éxito
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tarjeta de Valor -->
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover transition duration-300 ease-in-out border-t-4 border-cf-success">
+                    <h3 class="font-title text-xl font-semibold text-cf-success mb-3">Rentabilidad Garantizada</h3>
+                    <p class="text-cf-text">Aumento directo en ingresos al retener y direccionar la demanda médica hacia los servicios internos del prestador.</p>
+                </div>
+                <!-- Tarjeta de Valor -->
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover transition duration-300 ease-in-out border-t-4 border-cf-secondary">
+                    <h3 class="font-title text-xl font-semibold text-cf-secondary mb-3">Revenue Share sin Riesgo</h3>
+                    <p class="text-cf-text">Modelo 100% basado en resultados: 15% sobre las ventas efectivamente generadas a partir del direccionamiento.</p>
+                </div>
+                <!-- Tarjeta de Valor -->
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover transition duration-300 ease-in-out border-t-4 border-cf-primary">
+                    <h3 class="font-title text-xl font-semibold text-cf-primary mb-3">Trazabilidad y Control Total</h3>
+                    <p class="text-cf-text">Seguimiento en tiempo real de órdenes, citas y resultados mediante tableros e indicadores clínicos y financieros.</p>
+                </div>
+                <!-- Tarjeta de Valor -->
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover transition duration-300 ease-in-out border-t-4 border-cf-secondary">
+                    <h3 class="font-title text-xl font-semibold text-cf-secondary mb-3">Fidelización del Paciente</h3>
+                    <p class="text-cf-text">Acompañamiento personalizado y contacto humano a través de concierges de salud y una aplicación digital.</p>
+                </div>
+                <!-- Tarjeta de Valor -->
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover transition duration-300 ease-in-out border-t-4 border-cf-success">
+                    <h3 class="font-title text-xl font-semibold text-cf-success mb-3">Eficiencia Operacional</h3>
+                    <p class="text-cf-text">Reducción de fugas de pacientes y mejor control sobre la conversión de órdenes médicas.</p>
+                </div>
+                <!-- Tarjeta de Valor -->
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover transition duration-300 ease-in-out border-t-4 border-cf-primary">
+                    <h3 class="font-title text-xl font-semibold text-cf-primary mb-3">Gestión Poblacional y Analítica</h3>
+                    <p class="text-cf-text">Identificación de grupos de riesgo y creación de programas de continuidad asistencial personalizados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Componentes del Servicio (Interactive Accordion) -->
+    <section id="componentes" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-title font-semibold text-cf-primary mb-10 text-center">
+                4. Componentes del Servicio
+            </h2>
+
+            <div id="accordion-container" class="space-y-4 max-w-4xl mx-auto">
+
+                <!-- Componente 1: Concierge de Salud -->
+                <div class="rounded-xl shadow-lg overflow-hidden border border-cf-bg-light">
+                    <button class="accordion-trigger w-full flex justify-between items-center p-5 bg-cf-primary text-white font-title text-lg transition duration-300 hover:bg-cf-secondary" data-target="content-1">
+                        🔹 1. Concierge de Salud (In-situ y remoto)
+                        <span class="accordion-icon transform rotate-0 transition-transform duration-300">
+                            <!-- SVG: Chevron hacia abajo -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </button>
+                    <div id="content-1" class="accordion-content p-5 bg-white text-cf-text" style="display: none;">
+                        <ul class="list-disc ml-5 space-y-2">
+                            <li>Contacto proactivo con pacientes egresados de urgencias, consulta externa y servicio hospitalario.</li>
+                            <li>Seguimiento y recordatorio de estudios, citas y procedimientos.</li>
+                            <li>Educación médica y orientación sobre próximos pasos del tratamiento.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Componente 2: Plataforma de Seguimiento -->
+                <div class="rounded-xl shadow-lg overflow-hidden border border-cf-bg-light">
+                    <button class="accordion-trigger w-full flex justify-between items-center p-5 bg-cf-primary text-white font-title text-lg transition duration-300 hover:bg-cf-secondary" data-target="content-2">
+                        🔹 2. Plataforma de Seguimiento
+                        <span class="accordion-icon transform rotate-0 transition-transform duration-300">
+                            <!-- SVG: Chevron hacia abajo -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </button>
+                    <div id="content-2" class="accordion-content p-5 bg-white text-cf-text" style="display: none;">
+                        <ul class="list-disc ml-5 space-y-2">
+                            <li>Registro automatizado de pacientes egresados y órdenes médicas.</li>
+                            <li>Seguimiento digital estructurado y alertas automáticas de riesgo.</li>
+                            <li>Control de conversión por servicio o especialidad para identificar fugas.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Componente 3: Aplicación para Pacientes (Personalizable) -->
+                <div class="rounded-xl shadow-lg overflow-hidden border border-cf-bg-light">
+                    <button class="accordion-trigger w-full flex justify-between items-center p-5 bg-cf-primary text-white font-title text-lg transition duration-300 hover:bg-cf-secondary" data-target="content-3">
+                        🔹 3. Aplicación para Pacientes
+                        <span class="accordion-icon transform rotate-0 transition-transform duration-300">
+                            <!-- SVG: Chevron hacia abajo -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </button>
+                    <div id="content-3" class="accordion-content p-5 bg-white text-cf-text" style="display: none;">
+                        <ul class="list-disc ml-5 space-y-2">
+                            <li>Portal de autogestión para consultar órdenes, citas, resultados e historial clínico.</li>
+                            <li>Personalizable con la identidad visual del centro médico (Fidelización directa).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Componente 4: Tableros de Datos y Analítica -->
+                <div class="rounded-xl shadow-lg overflow-hidden border border-cf-bg-light">
+                    <button class="accordion-trigger w-full flex justify-between items-center p-5 bg-cf-primary text-white font-title text-lg transition duration-300 hover:bg-cf-secondary" data-target="content-4">
+                        🔹 4. Tableros de Datos y Analítica
+                        <span class="accordion-icon transform rotate-0 transition-transform duration-300">
+                            <!-- SVG: Chevron hacia abajo -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </button>
+                    <div id="content-4" class="accordion-content p-5 bg-white text-cf-text" style="display: none;">
+                        <ul class="list-disc ml-5 space-y-2">
+                            <li>Indicadores en tiempo real de conversión, fidelización, ingresos y desempeño clínico.</li>
+                            <li>Segmentación detallada por diagnóstico, médico referidor y tipo de orden médica.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 5. Beneficios Estratégicos (Data-Driven Cards) -->
+    <section id="beneficios" class="py-16 bg-cf-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-title font-semibold mb-10 text-center">
+                5. Beneficios Estratégicos para el Prestador
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Beneficio 1: Ingresos -->
+                <div class="p-6 rounded-xl bg-white bg-opacity-10 shadow-xl border-t-4 border-cf-success hover:bg-opacity-20 transition duration-300">
+                    <span class="text-3xl text-cf-success block mb-3">💰</span>
+                    <h3 class="font-title text-xl font-semibold mb-2">Incremento de Ingresos</h3>
+                    <p class="text-sm opacity-90">Incremento estimado del 20–30% en ventas derivadas de órdenes médicas internas.</p>
+                </div>
+
+                <!-- Beneficio 2: Fidelización -->
+                <div class="p-6 rounded-xl bg-white bg-opacity-10 shadow-xl border-t-4 border-cf-secondary hover:bg-opacity-20 transition duration-300">
+                    <span class="text-3xl text-cf-secondary block mb-3">👨‍⚕️</span>
+                    <h3 class="font-title text-xl font-semibold mb-2">Fidelización del Paciente</h3>
+                    <p class="text-sm opacity-90">Reducción de pérdida de pacientes hacia competidores mediante atención continua y acompañada.</p>
+                </div>
+
+                <!-- Beneficio 3: Inteligencia -->
+                <div class="p-6 rounded-xl bg-white bg-opacity-10 shadow-xl border-t-4 border-cf-success hover:bg-opacity-20 transition duration-300">
+                    <span class="text-3xl text-cf-success block mb-3">🧠</span>
+                    <h3 class="font-title text-xl font-semibold mb-2">Inteligencia de Datos</h3>
+                    <p class="text-sm opacity-90">Información consolidada para decisiones estratégicas y control sobre flujos de egreso y referencias.</p>
+                </div>
+
+                <!-- Beneficio 4: Innovación -->
+                <div class="p-6 rounded-xl bg-white bg-opacity-10 shadow-xl border-t-4 border-cf-secondary hover:bg-opacity-20 transition duration-300">
+                    <span class="text-3xl text-cf-secondary block mb-3">📲</span>
+                    <h3 class="font-title text-xl font-semibold mb-2">Innovación Tecnológica</h3>
+                    <p class="text-sm opacity-90">Ecosistema omnicanal (App, Bot, Web) e integración fluida con sistemas existentes.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Modelo Económico (Destacando el Riesgo Compartido) -->
+    <section id="modelo-economico" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-title font-semibold text-cf-primary mb-10 text-center">
+                6. Modelo Económico | Riesgo Compartido
+            </h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-cf-bg-light p-6 rounded-xl shadow-inner mb-6">
+                    <p class="text-lg font-title text-cf-primary font-semibold text-center">
+                        SIN INVERSIÓN INICIAL OBLIGATORIA: El servicio opera bajo un modelo de riesgo compartido basado en resultados.
+                    </p>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-cf-bg-light rounded-lg">
+                        <thead>
+                            <tr class="bg-cf-text text-white font-title">
+                                <th class="py-3 px-6 text-left">Concepto</th>
+                                <th class="py-3 px-6 text-left">Modalidad de Cobro</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-cf-bg-light hover:bg-gray-50">
+                                <td class="py-4 px-6 font-semibold text-cf-primary">Implementación y Puesta en Marcha</td>
+                                <td class="py-4 px-6 text-cf-text">Incluye configuración del software, entrenamiento del personal y activación de canales.</td>
+                            </tr>
+                            <tr class="border-b border-cf-bg-light hover:bg-gray-50">
+                                <td class="py-4 px-6 font-semibold text-cf-primary">Seguimiento de Pacientes Activos</td>
+                                <td class="py-4 px-6 text-cf-success font-bold text-xl">15% de Revenue Share</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-4 px-6 font-semibold text-cf-primary">Reportes y BI</td>
+                                <td class="py-4 px-6 text-cf-text">Entrega mensual de reportes detallados de gestión y resultados (incluido en el Revenue Share).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="mt-6 text-sm text-center italic text-gray-500">
+                    Facturación: Mensual, con trazabilidad de conversión y validación conjunta con el prestador.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Diferenciales Clave (Highlight Boxes) -->
+    <section id="diferenciales" class="py-16 bg-cf-bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-title font-semibold text-cf-primary mb-10 text-center">
+                7. Diferenciales Clave
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Diferencial 1: Concierge -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-l-8 border-cf-primary transition duration-300 hover:shadow-2xl">
+                    <h3 class="font-title text-xl font-semibold text-cf-primary mb-2">Concierge Médico Integrado</h3>
+                    <p class="text-sm text-cf-text">Control total del flujo clínico y seguimiento de egresos, combinando tecnología con el toque humano.</p>
+                </div>
+
+                <!-- Diferencial 2: Plataforma -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-l-8 border-cf-secondary transition duration-300 hover:shadow-2xl">
+                    <h3 class="font-title text-xl font-semibold text-cf-secondary mb-2">Plataforma Tecnológica Propia</h3>
+                    <p class="text-sm text-cf-text">Garantiza trazabilidad, seguridad y autonomía en la gestión de data sensible.</p>
+                </div>
+
+                <!-- Diferencial 3: Experiencia -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-l-8 border-cf-success transition duration-300 hover:shadow-2xl">
+                    <h3 class="font-title text-xl font-semibold text-cf-success mb-2">Experiencia Comprobada</h3>
+                    <p class="text-sm text-cf-text">Modelo operativo validado con aseguradoras y redes hospitalarias de alto volumen.</p>
+                </div>
+
+                <!-- Diferencial 4: BI -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-l-8 border-cf-secondary transition duration-300 hover:shadow-2xl">
+                    <h3 class="font-title text-xl font-semibold text-cf-secondary mb-2">Ciencia de Datos y BI</h3>
+                    <p class="text-sm text-cf-text">Dashboards clínicos y financieros personalizados para la toma de decisiones estratégicas.</p>
+                </div>
+
+                <!-- Diferencial 5: Enfoque 360 -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-l-8 border-cf-primary transition duration-300 hover:shadow-2xl">
+                    <h3 class="font-title text-xl font-semibold text-cf-primary mb-2">Enfoque 360° del Paciente</h3>
+                    <p class="text-sm text-cf-text">Desde la atención inicial hasta la recuperación total, asegurando la continuidad asistencial.</p>
+                </div>
+
+                <!-- Diferencial 6: App -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-l-8 border-cf-success transition duration-300 hover:shadow-2xl">
+                    <h3 class="font-title text-xl font-semibold text-cf-success mb-2">Aplicación Personalizable</h3>
+                    <p class="text-sm text-cf-text">Fidelización y comunicación directa, reforzando la marca del centro médico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Plan de Implementación (Timeline) -->
+    <section id="plan" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-title font-semibold text-cf-primary mb-10 text-center">
+                8. Plan de Implementación
+            </h2>
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Línea de tiempo (visible en desktop) -->
+                <div class="timeline-line hidden md:block"></div>
+
+                <div class="grid md:grid-cols-3 gap-8 relative z-10">
+
+                    <!-- Fase 1 -->
+                    <div class="timeline-step bg-white rounded-xl shadow-lg p-5 border-t-4 border-cf-primary card-hover transition duration-300">
+                        <p class="text-sm font-semibold text-cf-primary uppercase">Fase 1: Preparación</p>
+                        <h4 class="font-title text-2xl font-bold text-cf-secondary mb-2">Mes 1</h4>
+                        <ul class="list-disc ml-4 text-sm text-cf-text space-y-1">
+                            <li>Aceptación de propuesta.</li>
+                            <li>Configuración del sistema CAREFLOW.</li>
+                            <li>Capacitación del personal de concierge.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Fase 2 -->
+                    <div class="timeline-step bg-white rounded-xl shadow-lg p-5 border-t-4 border-cf-secondary card-hover transition duration-300">
+                        <p class="text-sm font-semibold text-cf-secondary uppercase">Fase 2: Operación Inicial</p>
+                        <h4 class="font-title text-2xl font-bold text-cf-primary mb-2">Meses 2–3</h4>
+                        <ul class="list-disc ml-4 text-sm text-cf-text space-y-1">
+                            <li>Activación del flujo de seguimiento.</li>
+                            <li>Primeros tableros de control en línea.</li>
+                            <li>Seguimiento proactivo a los primeros pacientes.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Fase 3 -->
+                    <div class="timeline-step bg-white rounded-xl shadow-lg p-5 border-t-4 border-cf-success card-hover transition duration-300">
+                        <p class="text-sm font-semibold text-cf-success uppercase">Fase 3: Optimización</p>
+                        <h4 class="font-title text-2xl font-bold text-cf-secondary mb-2">Meses 4–6</h4>
+                        <ul class="list-disc ml-4 text-sm text-cf-text space-y-1">
+                            <li>Análisis de conversión detallado.</li>
+                            <li>Ajustes operativos y metodológicos.</li>
+                            <li>Consolidación del modelo de Revenue Share.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Resultados Esperados (Progress Bars) -->
+    <section id="resultados" class="py-16 bg-cf-bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-title font-semibold text-cf-primary mb-10 text-center">
+                9. Resultados Esperados (Metas Mínimas)
+            </h2>
+            <div class="space-y-6 max-w-4xl mx-auto">
+
+                <!-- Resultado 1: Conversión -->
+                <div>
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-title font-semibold text-cf-primary">Conversión de órdenes médicas</span>
+                        <span class="font-title text-cf-secondary font-bold">+70%</span>
+                    </div>
+                    <div class="w-full bg-white rounded-full h-2.5">
+                        <div class="bg-cf-secondary h-2.5 rounded-full" style="width: 85%"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">Meta: Primer semestre de operación.</p>
+                </div>
+
+                <!-- Resultado 2: Fidelización -->
+                <div>
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-title font-semibold text-cf-primary">Fidelización de pacientes</span>
+                        <span class="font-title text-cf-success font-bold">+65%</span>
+                    </div>
+                    <div class="w-full bg-white rounded-full h-2.5">
+                        <div class="bg-cf-success h-2.5 rounded-full" style="width: 80%"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">Meta: Primer año.</p>
+                </div>
+
+                <!-- Resultado 3: Incremento en Ingresos -->
+                <div>
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-title font-semibold text-cf-primary">Incremento en ingresos del prestador (Neto)</span>
+                        <span class="font-title text-cf-secondary font-bold">+15–20%</span>
+                    </div>
+                    <div class="w-full bg-white rounded-full h-2.5">
+                        <div class="bg-cf-secondary h-2.5 rounded-full" style="width: 50%"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">Meta: Primer año.</p>
+                </div>
+
+                <!-- Resultado 4: NPS -->
+                <div>
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-title font-semibold text-cf-primary">Satisfacción del paciente (NPS)</span>
+                        <span class="font-title text-cf-success font-bold">>90%</span>
+                    </div>
+                    <div class="w-full bg-white rounded-full h-2.5">
+                        <div class="bg-cf-success h-2.5 rounded-full" style="width: 90%"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">Meta: Continuo.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Conclusión y CTA -->
+    <section id="contacto" class="py-20 bg-cf-primary text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-title font-bold mb-4">
+                Redefina la Continuidad Asistencial con CAREFLOW
+            </h2>
+            <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+                Este modelo integral combina tecnología, analítica y acompañamiento humano para aumentar los ingresos, fidelizar pacientes y garantizar la continuidad asistencial dentro de su red.
+            </p>
+            <p class="text-lg font-bold mb-10">
+                El esquema de Revenue Share representa una inversión basada en resultados reales.
+            </p>
+
+            <a href="#" class="inline-block px-12 py-4 text-xl font-title font-bold rounded-full bg-cf-success text-white btn-success hover:bg-green-600 transition duration-300">
+                ¡Implementemos CAREFLOW sin Inversión Inicial!
+            </a>
+            <p class="mt-4 text-sm opacity-70">Smart patient flow management.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cf-text text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2025 CAREFLOW. Todos los derechos reservados.</p>
+            <p class="mt-2 text-xs opacity-70">Propuesta Comercial | Deep Blue (#1C4E80) | Turquoise Flow (#00B8D9) | Emerald Green (#27AE60)</p>
+        </div>
+    </footer>
+
+    <!-- Script para la Interactividad del Acordeón -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const triggers = document.querySelectorAll('.accordion-trigger');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const targetId = trigger.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+                    const icon = trigger.querySelector('.accordion-icon');
+
+                    // Cerrar todos los demás contenidos
+                    document.querySelectorAll('.accordion-content').forEach(content => {
+                        if (content.id !== targetId && content.style.display !== 'none') {
+                            content.style.display = 'none';
+                            // Resetear ícono del trigger asociado
+                            const otherTrigger = document.querySelector(`.accordion-trigger[data-target="${content.id}"]`);
+                            if (otherTrigger) {
+                                otherTrigger.querySelector('.accordion-icon').classList.remove('rotate-180');
+                            }
+                        }
+                    });
+
+                    // Abrir o cerrar el contenido clickeado
+                    if (targetContent.style.display === 'block') {
+                        targetContent.style.display = 'none';
+                        icon.classList.remove('rotate-180');
+                        trigger.classList.remove('bg-cf-secondary');
+                        trigger.classList.add('bg-cf-primary');
+                    } else {
+                        targetContent.style.display = 'block';
+                        icon.classList.add('rotate-180');
+                        trigger.classList.add('bg-cf-secondary');
+                        trigger.classList.remove('bg-cf-primary');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
